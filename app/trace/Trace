@@ -1,0 +1,20 @@
+After entering username:admin@products.ie and password:password and clicking
+the login button, \loginSubmit method is POSTed from routes, which checks
+the form fields for input errors. If it doesn't find any errors it checks the role of the user and redirects to the
+appropriate page, through either AdminController.products(Long cat) which will render the screen for adding or
+removing products, or HomeController.index(), which renders the index page.
+If there are input errors at the form the user is redirected back to the login page.
+
+Editing/Adding a Product:
+On the adminProducts.scala.html there are edit, delete and buttons.
+If the edit button beside a product is clicked it runs the updateProduct method passing in the id of the product
+next to it as the parameter for the method. The updateProduct method creates a form with the details
+of the product and renders that form in the addProduct page allowing the user to edit the current information
+about the product and save it back to the database. Clicking the Add a Product button passes a blank form to
+the addProduct.scala.html page allowing the user to enter in details of the new product.
+
+Deleting a Product:
+If the admin hits the delete button next to a product the deleteProduct method is run which 
+passes in the id of the product as an argument. This method finds the product byID and deletes it with the delete() method
+from the database and renders the products page with a 'flash' method popping up a message stating that it was
+successfully delete.
